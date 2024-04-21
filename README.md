@@ -19,12 +19,14 @@ Welcome to VintageClothing4Real! This is a personal project aimed at creating an
 
 ## Technologies:
 - `Frontend:` HTML, CSS and Javascript.
-- `Framework:` Next.Js
-- `Backend:` Node.js
-- `Database:` MongoDB
-- `Payment Gateway:` Paystack API
-- `libraries and Other:` 
-    - NextUI
-    - Material UI
-    - React Icons
+- `Framework:` [Next.Js](https://nextjs.org/docs)
+- `Backend:` [Node.js](https://nodejs.org/en)
+- `Database:` [MongoDB](https://www.mongodb.com/)
+- `Payment Gateway:` [Paystack API](https://paystack.com/docs/)
+- `libraries and Other:`
+    - [NextAuth](https://next-auth.js.org/providers/credentials)
+    - [NextUI](https://nextui.org/docs)
+    - [Material UI](https://mui.com/material-ui/getting-started/)
+    - [React Icons](https://react-icons.github.io/react-icons/search)
+    - [ReCharts](https://recharts.org/en-US/guide/getting-started)
 - `Deployment:` [Vercel](https://vercel.com/)

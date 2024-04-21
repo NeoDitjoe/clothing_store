@@ -1,5 +1,5 @@
 # VintageClothing4Real
-Welcome to VintageClothing4Real! This is a personal project aimed at creating an online platform for vintage inspired clothing and accessories. Below you will find an overview of the features and functionalities that is or will be included in this web application
+Welcome to VintageClothing4Real! This is a personal project aimed at creating an online platform for vintage inspired clothing and accessories. Below you will find an overview of the features and functionalities that are, or will be included in this web application
 
 ## Features:
 1. `Clothing Products and Accessories:` Explore a range of vintage clothing items and accessories available for purchase.

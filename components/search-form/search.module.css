@@ -1,0 +1,6 @@
+.form input {
+  all: unset;
+  border-bottom: 1px solid black;
+  padding: 20px;
+  padding-left: 10px;
+}

@@ -1,11 +1,11 @@
 import client from "../connect-mongo-client";
 
 export default async function getItems() {
-  const db = client.db('sample_airbnb')
+  const db = client.db('store')
 
-  const results = await db.collection('listingsAndReviews')
+  const results = await db.collection('items')
   .aggregate([
-    {$project: {name: 1}}
+    {$project: { _id: 0}}
   ])
   .toArray()
 

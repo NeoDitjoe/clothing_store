@@ -38,8 +38,9 @@ export default function Nav() {
           <Image
             src={logo}
             alt="4REal"
-            width={170}
-            height={170}
+            width={670}
+            height={670}
+            style={{ height: '17hvh', width: '170px'}}
           /></Link>
       </NavbarBrand>
 

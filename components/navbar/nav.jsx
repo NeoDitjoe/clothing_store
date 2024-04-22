@@ -20,8 +20,8 @@ export default function Nav() {
         </NavbarItem>
 
         <NavbarItem isActive={false}>
-          <Link href="/testing-page" aria-current="page" color="secondary">
-            Testing Page
+          <Link href="/products" aria-current="page" color="secondary">
+            All Products
           </Link>
         </NavbarItem>
 

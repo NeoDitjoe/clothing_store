@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Products(props) {
 
@@ -8,12 +9,23 @@ export default function Products(props) {
     <main>
       <h1 className='text-center m-3 text-4xl font-bold text-green-400'>New Products</h1>
       <div className="flex justify-center m-5" >
-        <div className='flex flex-row gap-5'>
+        <div className='grid md:grid-cols-5 grid-cols-2 sm:grid-cols-3 gap-5'>
           {
             items?.map((item) => (
               <ProductsComponents {...item} />
             ))
           }
+          <div className='flex flex-col justify-center items-center'>
+            <Link
+              className='text-green-400 font-bold'
+              href='/'>View All Products
+            </Link>
+            <Link
+              className='text-green-400 font-bold'
+              href='/'>{'>>>'}
+            </Link>
+            
+          </div>
         </div>
       </div>
     </main>

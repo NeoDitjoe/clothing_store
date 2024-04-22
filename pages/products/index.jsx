@@ -1,7 +1,7 @@
 import { Button } from '@nextui-org/react'
 import React from 'react'
 
-export default function TestingPage() {
+export default function ProductPage() {
   return (
     <div className='p-4 bg-blue-300'>
       <Button

@@ -18,11 +18,11 @@ export default function Products(props) {
           <div className='flex flex-col justify-center items-center'>
             <Link
               className='text-green-400 font-bold'
-              href='/'>View All Products
+              href='/products?p=1'>View All Products
             </Link>
             <Link
               className='text-green-400 font-bold'
-              href='/'>{'>>>'}
+              href='/products?p=1'>{'>>>'}
             </Link>
             
           </div>

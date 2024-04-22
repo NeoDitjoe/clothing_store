@@ -12,7 +12,7 @@ export default function Categories() {
       <div className='flex flex-row gap-6 overflow-x-scroll  m-5' style={{width: '100%'}}>
         {
           categories.map((item) => (
-            <div className='flex flex-col items-center cursor-pointer'>
+            <div className='flex flex-col items-center cursor-pointer' key={item.name}>
               <div style={{
                 background: `url(${item.image})`,
                 backgroundPosition: 'center',

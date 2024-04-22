@@ -40,7 +40,7 @@ export default function Nav() {
             alt="4REal"
             width={670}
             height={670}
-            style={{ height: '17hvh', width: '170px'}}
+            style={{ height: '17hvh', width: '170px' }}
           /></Link>
       </NavbarBrand>
 
@@ -66,6 +66,7 @@ export default function Nav() {
             {
               menu.map((item) => (
                 <DropdownItem
+                  key={item.name}
                   onClick={() => router.push(item.link)}
                 >{item.name}</DropdownItem>
               ))

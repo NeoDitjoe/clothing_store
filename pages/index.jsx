@@ -11,7 +11,7 @@ export default function HomePage({items}) {
   );
 }
 
-export async function getServerSideProps(){
+export async function getStaticProps(){
   const items = await getItems()
 
   return{

@@ -32,3 +32,22 @@ export const categories = [
     name: 'Accessories'
   },
 ]
+
+export const moreCategories = [
+  {
+    image: 'https://images.pexels.com/photos/7959081/pexels-photo-7959081.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    name: 'Winter Men'
+  },
+  {
+    image: 'https://images.pexels.com/photos/19130001/pexels-photo-19130001/free-photo-of-woman-face-in-jacket-hood.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    name: 'Winter Women'
+  },
+  {
+    image: 'https://images.pexels.com/photos/63778/pexels-photo-63778.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    name: 'Bags'
+  },
+  {
+    image: 'https://images.pexels.com/photos/5698908/pexels-photo-5698908.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    name: 'Hats'
+  },
+]

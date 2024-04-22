@@ -4,6 +4,7 @@ import Categories from './categories/categories'
 import styles from './home.module.css'
 import MoreCategories from './more-categories/categories'
 import Products from './products/products'
+import VideoPromo from './video/video'
 
 export default function Home(props) {
 
@@ -21,6 +22,8 @@ export default function Home(props) {
       <Advert adverts={adverts} />
 
       <MoreCategories />
+
+      <VideoPromo/>
 
     </main>
   )

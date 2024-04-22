@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Search from '../search-form/search'
 import Advert from './advert-huge-post/advert'
 import Categories from './categories/categories'
@@ -5,6 +6,7 @@ import styles from './home.module.css'
 import MoreCategories from './more-categories/categories'
 import Products from './products/products'
 import VideoPromo from './video/video'
+import logo from '../../public/images/logo.png'
 
 export default function Home(props) {
 
@@ -12,18 +14,28 @@ export default function Home(props) {
   return (
     <main>
       <div className={styles.background}></div>
-      
-      <Search />
+      <div className={styles.div}>
+        <Image
+          src={logo}
+          width={200}
+          height={200}
+          className={styles.logo}
+        />
+      </div>
 
-      <Categories />
+      <div className='bg-white pt-2 pb-2 radius-23'>
+        <Search />
 
-      <Products items={items} />
+        <Categories />
 
-      <Advert adverts={adverts} />
+        <Products items={items} />
 
-      <MoreCategories />
+        <Advert adverts={adverts} />
 
-      <VideoPromo/>
+        <MoreCategories />
+
+        <VideoPromo />
+      </div>
 
     </main>
   )

@@ -1,7 +1,26 @@
 import Image from 'next/image'
-import React from 'react'
 
 export default function Products(props) {
+
+  const { items } = props
+
+  return (
+    <main>
+      <h1 className='text-center m-3 text-4xl font-bold text-green-400'>New Products</h1>
+      <div className="flex justify-center m-5" >
+        <div className='flex flex-row gap-5'>
+          {
+            items?.map((item) => (
+              <ProductsComponents {...item} />
+            ))
+          }
+        </div>
+      </div>
+    </main>
+  )
+}
+
+export function ProductsComponents(props) {
 
   const { name, brand, price, image } = props
   return (
@@ -13,7 +32,7 @@ export default function Products(props) {
           width={100}
           height={400}
 
-          style={{ height:'20vh'}}
+          style={{ height: '20vh' }}
         />
       </div>
 

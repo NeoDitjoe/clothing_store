@@ -24,7 +24,7 @@ export function Categories(props) {
   const { image, name } = props
 
   return (
-    <main>
+    <main key={name}>
       <div>
         <Image
           src={image}

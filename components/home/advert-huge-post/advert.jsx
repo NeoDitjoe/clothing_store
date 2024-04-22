@@ -22,7 +22,7 @@ export function AdvertComponent(props) {
   const { image, title } = props
 
   return (
-    <main className='w-80'>
+    <main className='w-80' key={title}>
 
       <div
         className='flex justify-center items-center'

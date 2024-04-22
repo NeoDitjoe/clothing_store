@@ -38,7 +38,7 @@ export function ProductsComponents(props) {
 
       <h2>{name.substring(0, 12)}...</h2>
       <h4 className='text-gray-400'>{brand}</h4>
-      <h1 className='font-bold mt-1'>R {(Number(price) * 18).toFixed(2)}</h1>
+      <h1 className='font-bold mt-1'>R {(Number(price) * 19.53).toFixed(2)}</h1>
     </main>
   )
 }

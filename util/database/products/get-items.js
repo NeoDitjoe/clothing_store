@@ -15,12 +15,13 @@ export default async function getItems(collection) {
   return results
 }
  
-export async function getAllItems(limit){
+export async function getAllItems(skip){
 
   const results = await db.collection('items')
     .aggregate([
       {$project: {_id: 0}},
-      {$limit: limit}
+      {$skip: skip},
+      {$limit: 4},
     ])
     .toArray()
 

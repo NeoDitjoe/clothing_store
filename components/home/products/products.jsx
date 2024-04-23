@@ -41,10 +41,10 @@ export function ProductsComponents(props) {
         <Image
           src={image[0]}
           alt={name}
-          width={100}
+          width={400}
           height={400}
 
-          style={{ height: '20vh' }}
+          style={{ height: '20vh', width: '100px' }}
         />
       </div>
 

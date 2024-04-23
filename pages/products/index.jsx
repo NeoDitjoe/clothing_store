@@ -1,14 +1,11 @@
+import AllProducts from '@/components/all-products/products'
 import { getAllItems } from '@/util/database/products/get-items'
 import { Button } from '@nextui-org/react'
-import { useRouter } from 'next/router'
 import React from 'react'
 
 export default function ProductPage(props) {
 
   const { items } = props
-  const router = useRouter()
-
-  console.log(items)
 
   return (
     <div className='p-4 bg-blue-300'>
@@ -20,13 +17,15 @@ export default function ProductPage(props) {
       >
         Press me
       </Button>
+
+      <AllProducts items={items}/>
     </div>
   )
 }
 
 export async function getServerSideProps({query}){
 
-  const items = await getAllItems(Number(query.p))
+  const items = await getAllItems(Number(query.p * 4))
 
   return{
     props:{

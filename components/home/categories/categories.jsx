@@ -1,4 +1,5 @@
 import { categories } from '@/util/home/data'
+import Link from 'next/link'
 import React from 'react'
 
 export default function Categories() {
@@ -9,20 +10,22 @@ export default function Categories() {
         <h1 className='text-5xl font-bold'>Categories</h1>
       </div>
 
-      <div className='flex flex-row gap-6 overflow-x-scroll  m-5' style={{width: '100%'}}>
+      <div className='flex flex-row gap-6 overflow-x-scroll  m-5' style={{ width: '100%' }}>
         {
           categories.map((item) => (
-            <div className='flex flex-col items-center cursor-pointer' key={item.name}>
-              <div style={{
-                background: `url(${item.image})`,
-                backgroundPosition: 'center',
-                backgroundSize: 'cover',
-                width: '200px',
-                height: '200px',
-                borderRadius: '100%',
-              }}></div>
+            <div className='flex flex-col' key={item.name}>
+              <Link href={`/products?p=1&q=${item.name} `}>
+                <div style={{
+                  background: `url(${item.image})`,
+                  backgroundPosition: 'center',
+                  backgroundSize: 'cover',
+                  width: '200px',
+                  height: '200px',
+                  borderRadius: '100%',
+                }}></div>
 
-              <h1 className='text-2xl font-bold'>{item.name}</h1>
+                <h1 className='text-2xl font-bold text-center'>{item.name}</h1>
+              </Link>
             </div>
           ))
         }

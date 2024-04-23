@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 
 export default function AllProducts(props) {
 
@@ -19,11 +20,11 @@ export default function AllProducts(props) {
 
 export function ProductsComponents(props) {
 
-  const { name, brand, price, image } = props
+  const { name, brand, price, image, id } = props
 
   const ellipsis = name.length >= 22
   return (
-    <main key={name} className='bg-gray-100 w-25 pl-4 pr-2 pb-2 shadow-md rounded'>
+    <Link href={`/view-product?item=${id}`} key={name} className='bg-gray-100 w-25 pl-4 pr-2 pb-2 shadow-md rounded'>
       <div className='flex justify-center h-50'>
         <Image
           src={image[0]}
@@ -38,6 +39,6 @@ export function ProductsComponents(props) {
       <h2>{name.substring(0, 22)}{ellipsis && '...'}</h2>
       <h4 className='text-gray-400'>{brand}</h4>
       <h1 className='font-bold mt-1'>R {(Number(price) * 19.53).toFixed(2)}</h1>
-    </main>
+    </Link>
   )
 }

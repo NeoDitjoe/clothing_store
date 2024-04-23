@@ -21,41 +21,44 @@ export default function FilterOptions(props) {
   let clearQuery = false
 
   return (
-    <main className='flex justity-center bg-white p-8 max-w-[60em]'>
-      <div className='flex flex-wrap gap-4'>
-        {
-          categories?.map((item) => (
-            <div
-              onClick={() => {
-                
-                if(!isSelected.includes(item)){
-                  router.query.q 
-                  ? filterby += item + ' '
-                  : filterby = item + ' '
-                }else{
-                  const removeItem = isSelected.filter(selected => selected !== item)
+    <main>
+      <h1 className='bg-white text-center text-2xl text-orange-300 font-bold'>Fitlter:</h1>
+      <div className='flex justity-center bg-white p-8 max-w-[60em]'>
+        <div className='flex flex-wrap gap-4'>
+          {
+            categories?.map((item) => (
+              <div
+                onClick={() => {
 
-                  if(isSelected.length == 2){
-                    clearQuery = true
-                  }else{
-                    filterby = removeItem.join(' ').trim()
-                    clearQuery = false
+                  if (!isSelected.includes(item)) {
+                    router.query.q
+                      ? filterby += item + ' '
+                      : filterby = item + ' '
+                  } else {
+                    const removeItem = isSelected.filter(selected => selected !== item)
+
+                    if (isSelected.length == 2) {
+                      clearQuery = true
+                    } else {
+                      filterby = removeItem.join(' ').trim()
+                      clearQuery = false
+                    }
+
                   }
 
-                }
+                  setTimeout(() => {
 
-                setTimeout(() => {
+                    !clearQuery
+                      ? router.push(`/products?p=1&q=${filterby}`)
+                      : router.push('/products?p=1')
 
-                  !clearQuery 
-                  ? router.push(`/products?p=1&q=${filterby}`)
-                  : router.push('/products?p=1')
-
-                }, 200);
-              }}
-              className={`border border-pink-400 border-solid border-1 rounded pl-2 pr-2 hover:bg-pink-300  hover:text-white transition-colors duration-300 ease-in-out cursor-pointer ${isSelected.includes(item) && 'bg-pink-400 text-white'}` }
-            >{item}</div>
-          ))
-        }
+                  }, 200);
+                }}
+                className={`border border-pink-400 border-solid border-1 rounded pl-2 pr-2 hover:bg-pink-300  hover:text-white transition-colors duration-300 ease-in-out cursor-pointer ${isSelected.includes(item) && 'bg-pink-400 text-white'}`}
+              >{item}</div>
+            ))
+          }
+        </div>
       </div>
     </main>
   )

@@ -1,17 +1,29 @@
 import Image from "next/image"
+import { Pagination } from "@nextui-org/react";
+import { useRouter } from "next/router";
 
 export default function AllProducts(props) {
 
-  const { items } = props
+  const { items, countItems } = props
+  const router = useRouter()
+  const currentPage = router.query.p
+
+  function nextPageHandler(pageNumber){
+    router.push(`/products?p=${pageNumber}`)
+  }
 
   return (
     <div className="flex justify-center">
-      <div className="grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-2 ">
-        {
-          items?.map((item) => (
-            <ProductsComponents {...item}/>
-          ))
-        }
+      <div className="flex flex-col items-center gap-5">
+        <div className="grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-2 ">
+          {
+            items?.map((item) => (
+              <ProductsComponents {...item} />
+            ))
+          }
+        </div>
+
+        <Pagination onChange={nextPageHandler} total={countItems / 4} initialPage={Number(currentPage)} color={'warning'} />
       </div>
     </div>
   )

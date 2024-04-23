@@ -25,7 +25,7 @@ export default function ProductPage(props) {
 
 export async function getServerSideProps({query}){
 
-  const { items, countItems } = await getAllItems(Number((query.p - 1) * 4))
+  const { items, countItems } = await getAllItems(Number((query.p - 1) * 4), query.q || '')
 
   return{
     props:{

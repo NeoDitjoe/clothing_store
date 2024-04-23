@@ -15,17 +15,21 @@ export default async function getItems(collection) {
   return results
 }
  
-export async function getAllItems(skip){
+export async function getAllItems(skip, categoriesQuery){
+  
+  const categoriesQueryToArray = categoriesQuery.split(' ')
+  const match = categoriesQuery.split('').length > 0 ?  {categories: {$all: categoriesQueryToArray }} : {}  
 
   const items = await db.collection('items')
     .aggregate([
+      {$match: match},
       {$project: {_id: 0}},
       {$skip: skip},
       {$limit: 4},
     ])
     .toArray()
 
-    const countItems = await db.collection('items').countDocuments()
+    const countItems = await db.collection('items').countDocuments(match)
 
     return {
       items,

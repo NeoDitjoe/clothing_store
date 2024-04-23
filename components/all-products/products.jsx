@@ -23,7 +23,7 @@ export default function AllProducts(props) {
           }
         </div>
 
-        <Pagination onChange={nextPageHandler} total={countItems / 4} initialPage={Number(currentPage)} color={'warning'} />
+        <Pagination onChange={nextPageHandler} total={Math.ceil(countItems / 4)} initialPage={Number(currentPage)} color={'warning'} />
       </div>
     </div>
   )

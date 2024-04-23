@@ -13,11 +13,11 @@ export const categories = [
   },
   {
     image: 'https://images.pexels.com/photos/2356344/pexels-photo-2356344.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    name: 'Shirts'
+    name: 'Tops'
   },
   {
     image: 'https://images.pexels.com/photos/1598507/pexels-photo-1598507.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    name: 'Pants'
+    name: 'Bottoms'
   },
   {
     image: 'https://images.pexels.com/photos/8979071/pexels-photo-8979071.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',

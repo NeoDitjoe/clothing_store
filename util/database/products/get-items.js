@@ -17,7 +17,7 @@ export default async function getItems(collection) {
  
 export async function getAllItems(skip){
 
-  const results = await db.collection('items')
+  const items = await db.collection('items')
     .aggregate([
       {$project: {_id: 0}},
       {$skip: skip},
@@ -25,5 +25,10 @@ export async function getAllItems(skip){
     ])
     .toArray()
 
-    return results
+    const countItems = await db.collection('items').countDocuments()
+
+    return {
+      items,
+      countItems
+    }
 }

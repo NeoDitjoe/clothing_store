@@ -5,7 +5,7 @@ import React from 'react'
 
 export default function ProductPage(props) {
 
-  const { items } = props
+  const { items, countItems } = props
 
   return (
     <div className='p-4 bg-blue-300'>
@@ -18,18 +18,19 @@ export default function ProductPage(props) {
         Press me
       </Button>
 
-      <AllProducts items={items}/>
+      <AllProducts items={items} countItems={countItems}/>
     </div>
   )
 }
 
 export async function getServerSideProps({query}){
 
-  const items = await getAllItems(Number(query.p * 4))
+  const { items, countItems } = await getAllItems(Number((query.p - 1) * 4))
 
   return{
     props:{
       items,
+      countItems
     }
   }
 }

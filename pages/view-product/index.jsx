@@ -1,3 +1,4 @@
+import ViewProduct from "@/components/view-product/product"
 import singleItem from "@/util/database/products/single-item"
 
 export default function ViewProductPage(props) {
@@ -8,7 +9,7 @@ export default function ViewProductPage(props) {
 
   return (
     <main>
-      view-product
+      <ViewProduct {...item[0]}/>
     </main>
   )
 }

@@ -12,5 +12,11 @@ export default async function singleItem(id) {
     ])
     .toArray()
 
-    return item
+    const getCategories = item.map((item) => item.categories)
+    const categories = getCategories[0].slice(0, 3)
+
+    return {
+      item, 
+      categories
+    }
 }

@@ -1,5 +1,6 @@
 import { moreCategories } from "@/util/home/data"
 import Image from "next/image"
+import Link from "next/link"
 
 export default function MoreCategories() {
 
@@ -24,7 +25,7 @@ export function Categories(props) {
   const { image, name } = props
 
   return (
-    <main key={name}>
+    <Link href={`/products?p=1&q=${name} `} key={name}>
       <div>
         <Image
           src={image}
@@ -36,7 +37,7 @@ export function Categories(props) {
       </div>
 
       <h3 className="text-center font-bold text-purple-500">{name}</h3>
-    </main>
+    </Link>
   )
 
 }

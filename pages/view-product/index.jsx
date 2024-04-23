@@ -1,26 +1,33 @@
+import AllProducts from "@/components/all-products/products"
 import ViewProduct from "@/components/view-product/product"
+import { getAllItems } from "@/util/database/products/get-items"
 import singleItem from "@/util/database/products/single-item"
 
 export default function ViewProductPage(props) {
 
-  const { item } = props
-
-  console.log(item[0])
+  const { item, items } = props
 
   return (
-    <main>
-      <ViewProduct {...item[0]}/>
+    <main className="mb-10">
+      <ViewProduct {...item[0]} />
+
+      <h1
+        className="text-center text-black-400 font-bold text-3xl m-3"
+      >You Might Also Like</h1>
+      <AllProducts {...props} />
     </main>
   )
 }
 
-export async function getServerSideProps({query}){
+export async function getServerSideProps({ query }) {
 
-  const item = await singleItem(query.item)
+  const { item, categories } = await singleItem(query.item)
+  const { items } = await getAllItems(0, categories.join(' '))
 
-  return{
+  return {
     props: {
-      item
+      item,
+      items
     }
   }
 }

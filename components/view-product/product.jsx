@@ -20,8 +20,8 @@ export default function ViewProduct(props) {
           <Image
             src={image[0]}
             alt={name}
-            width={500}
-            height={500}
+            width={200}
+            height={200}
             style={{
               width: '25em',
               height: '85vh'

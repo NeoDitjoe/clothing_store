@@ -19,12 +19,6 @@ export default function Nav() {
           </Link>
         </NavbarItem>
 
-        <NavbarItem>
-          <Link href='/products?p=1' color="secondary">
-            All Products
-          </Link>
-        </NavbarItem>
-
       </NavbarContent>
 
       <NavbarBrand justify='center'>

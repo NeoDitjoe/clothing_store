@@ -14,7 +14,7 @@ export default function ViewProductPage(props) {
       <h1
         className="text-center text-black-400 font-bold text-3xl m-3"
       >You Might Also Like</h1>
-      <AllProducts {...props} />
+      <AllProducts items={items}/>
     </main>
   )
 }

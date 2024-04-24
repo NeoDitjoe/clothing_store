@@ -20,8 +20,8 @@ export default function ViewProduct(props) {
           <Image
             src={image[0]}
             alt={name}
-            width={500}
-            height={500}
+            width={200}
+            height={200}
             style={{
               width: '25em',
               height: '85vh'
@@ -55,7 +55,7 @@ export default function ViewProduct(props) {
             <h1 className='font-bold text-lg'>Qty:</h1>
             <select className='w-10 h-10'>
               {
-                qty.map((num) => <option className='text-center'>{num + 1}</option>)
+                qty.map((num, i) => <option className='text-center' key={i}>{num + 1}</option>)
               }
             </select>
           </div>

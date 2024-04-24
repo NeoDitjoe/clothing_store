@@ -17,6 +17,7 @@ export default function Home(props) {
       <div className={styles.div}>
         <Image
           src={logo}
+          alt='4real'
           width={200}
           height={200}
           className={styles.logo}

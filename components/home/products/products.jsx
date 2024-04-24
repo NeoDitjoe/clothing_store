@@ -11,8 +11,8 @@ export default function Products(props) {
       <div className="flex justify-center m-5" >
         <div className='grid md:grid-cols-5 grid-cols-2 sm:grid-cols-3 gap-5'>
           {
-            items?.map((item) => (
-              <ProductsComponents {...item} />
+            items?.map((item, i) => (
+              <ProductsComponents {...item} key={i} />
             ))
           }
           <div className='flex flex-col justify-center items-center'>
@@ -36,7 +36,7 @@ export function ProductsComponents(props) {
 
   const { name, brand, price, image, id } = props
   return (
-    <Link href={`/view-product?item=${id}`} key={name} className='bg-gray-100 w-25 pl-4 pr-2 shadow-md rounded'>
+    <Link href={`/view-product?item=${id}`} className='bg-gray-100 w-25 pl-4 pr-2 shadow-md rounded'>
       <div className='flex justify-center h-50'>
         <Image
           src={image[0]}

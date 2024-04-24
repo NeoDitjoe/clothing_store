@@ -26,11 +26,13 @@ export default function FilterOptions(props) {
       <div className='flex justity-center bg-white p-8 max-w-[60em]'>
         <div className='flex flex-wrap gap-4'>
           {
-            categories?.map((item) => (
+            categories?.map((item, i) => (
               <div
+                key={i}
                 onClick={() => {
 
                   if (!isSelected.includes(item)) {
+
                     router.query.q
                       ? filterby += item + ' '
                       : filterby = item + ' '

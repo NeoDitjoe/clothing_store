@@ -20,7 +20,7 @@ export default function Nav() {
         </NavbarItem>
 
         <NavbarItem>
-          <Link href='/products?p=1' aria-current="page" color="secondary">
+          <Link href='/products?p=1' color="secondary">
             All Products
           </Link>
         </NavbarItem>

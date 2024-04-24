@@ -24,7 +24,7 @@ export async function getAllItems(skip, categoriesQuery){
   const items = await db.collection('items')
     .aggregate([
       {$match: match},
-      {$project: {_id: 0}},
+      {$project: {_id: 0, name: 1, brand: 1, price: 1, image: 1, id: 1}},
       {$skip: skip},
       {$limit: 4},
     ])

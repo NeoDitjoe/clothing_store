@@ -30,8 +30,8 @@ export function Categories(props) {
         <Image
           src={image}
           alt={name}
-          width={500}
-          height={500}
+          width={150}
+          height={150}
           style={{ width: '200px', height: '200px' }}
         />
       </div>

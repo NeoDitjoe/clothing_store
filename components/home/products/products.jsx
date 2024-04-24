@@ -41,8 +41,8 @@ export function ProductsComponents(props) {
         <Image
           src={image[0]}
           alt={name}
-          width={400}
-          height={400}
+          width={100}
+          height={100}
 
           style={{ height: '20vh', width: '100px' }}
         />

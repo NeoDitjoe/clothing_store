@@ -10,8 +10,8 @@ export default function MoreCategories() {
       <div className="flex justify-center">
         <div className="grid grid-cols-2 gap-2 md:grid-cols-4 ">
           {
-            moreCategories.map((item) => (
-              <Categories {...item} />
+            moreCategories.map((item, i) => (
+              <Categories {...item} key={i}/>
             ))
           }
         </div>
@@ -25,13 +25,13 @@ export function Categories(props) {
   const { image, name } = props
 
   return (
-    <Link href={`/products?p=1&q=${name} `} key={name}>
+    <Link href={`/products?p=1&q=${name}`}>
       <div>
         <Image
           src={image}
           alt={name}
-          width={500}
-          height={500}
+          width={150}
+          height={150}
           style={{ width: '200px', height: '200px' }}
         />
       </div>

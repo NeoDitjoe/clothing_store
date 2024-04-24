@@ -8,8 +8,8 @@ export default function Advert(props) {
     <div className='flex justify-center'>
       <div className='flex md:flex-row  flex-col gap-5'>
         {
-          adverts?.map((item) => (
-            <AdvertComponent {...item} />
+          adverts?.map((item, i) => (
+            <AdvertComponent {...item} key={i} />
           ))
         }
       </div>
@@ -22,7 +22,7 @@ export function AdvertComponent(props) {
   const { image, title } = props
 
   return (
-    <main className='w-80' key={title}>
+    <main className='w-80'>
 
       <div
         className='flex justify-center items-center'

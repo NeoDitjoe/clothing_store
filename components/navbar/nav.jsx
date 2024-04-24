@@ -19,15 +19,9 @@ export default function Nav() {
           </Link>
         </NavbarItem>
 
-        <NavbarItem isActive={false}>
-          <Link href="/products?p=1" aria-current="page" color="secondary">
+        <NavbarItem>
+          <Link href='/products?p=1' aria-current="page" color="secondary">
             All Products
-          </Link>
-        </NavbarItem>
-
-        <NavbarItem >
-          <Link href="/" aria-current="page" color="warning">
-            Integrations
           </Link>
         </NavbarItem>
 
@@ -38,8 +32,8 @@ export default function Nav() {
           <Image
             src={logo}
             alt="4REal"
-            width={670}
-            height={670}
+            width={200}
+            height={200}
             style={{ height: '17hvh', width: '170px' }}
           /></Link>
       </NavbarBrand>

@@ -9,8 +9,8 @@ export default function AllProducts(props) {
     <div className="flex justify-center">
       <div className="grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-2 ">
         {
-          items?.map((item) => (
-            <ProductsComponents {...item} />
+          items?.map((item, i) => (
+            <ProductsComponents {...item} key={i}/>
           ))
         }
       </div>
@@ -24,13 +24,13 @@ export function ProductsComponents(props) {
 
   const ellipsis = name.length >= 22
   return (
-    <Link href={`/view-product?item=${id}`} key={name} className='bg-gray-100 w-25 pl-4 pr-2 pb-2 shadow-md rounded'>
+    <Link href={`/view-product?item=${id}`} className='bg-gray-100 w-25 pl-4 pr-2 pb-2 shadow-md rounded'>
       <div className='flex justify-center h-50'>
         <Image
           src={image[0]}
           alt={name}
-          width={400}
-          height={400}
+          width={200}
+          height={200}
 
           style={{ height: '250px', width: '230px' }}
         />

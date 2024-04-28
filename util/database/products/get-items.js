@@ -16,14 +16,23 @@ export default async function getItems(collection) {
   return results
 }
  
-export async function getAllItems(skip, categoriesQuery){
-  
+export async function getAllItems(skip, categoriesQuery, searchInput){
+
   const categoriesQueryToArray = categoriesQuery.split(' ')
   const match = categoriesQuery.split('').length > 0 ?  {categories: {$all: categoriesQueryToArray }} : {}  
-
+  const matchBySearchResults = searchInput 
+  ?  { $or : [ 
+    {$or:  searchInput.map(input => ({ name: { $regex: new RegExp(input, 'i') } }))},
+    {$or:  searchInput.map(input => ({ brand: { $regex: new RegExp(input, 'i') } }))},
+    {$or:  searchInput.map(input => ({ description: { $regex: new RegExp(input, 'i') } }))},
+    {$or: [{categories: { $in:  searchInput.map(word => new RegExp(word, 'i'))}}]},
+    
+  ]} 
+  : {}
+  
   const items = await db.collection('items')
     .aggregate([
-      {$match: match},
+      {$match: matchBySearchResults},
       {$project: {_id: 0, name: 1, brand: 1, price: 1, image: 1, id: 1}},
       {$skip: skip},
       {$limit: 4},

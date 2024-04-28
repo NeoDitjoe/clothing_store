@@ -1,6 +1,7 @@
 import PaginationComp from '@/components/all-products/pagination/pagination'
 import AllProducts from '@/components/all-products/products'
 import FilterOptions from '@/components/all-products/select-filters-options/filter-options'
+import Search from '@/components/search-form/search'
 import getCategories from '@/util/database/categories/get-categories'
 import { getAllItems } from '@/util/database/products/get-items'
 import React from 'react'
@@ -12,6 +13,8 @@ export default function ProductPage(props) {
 
       <FilterOptions {...props} />
 
+      <Search />
+
       <AllProducts {...props} />
 
       <PaginationComp {...props}/>
@@ -22,7 +25,7 @@ export default function ProductPage(props) {
 
 export async function getServerSideProps({query}){
 
-  const { items, countItems } = await getAllItems(Number((query.p - 1) * 4), query.q || '')
+  const { items, countItems } = await getAllItems(Number((query.p - 1) * 4), query.q || '', query.results_for?.split(' '))
   const categories = await getCategories()
 
   return{

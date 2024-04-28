@@ -1,13 +1,22 @@
 import React from 'react'
 import { FaSearch } from 'react-icons/fa'
 import styles from './search.module.css'
+import { useRouter } from 'next/router'
 
 export default function Search() {
 
+  const router = useRouter()
+
   async function searchHandler(e){
     e.preventDefault()
-    alert('Being up dated')
+    const form = e.target
+    const input = new FormData(form).get('search')
+    
+    router.push(`/products?p=1&results_for=${input}`)
+    form.reset()
+    
   }
+
   return (
     <form onSubmit={searchHandler} className={styles.form}>
       <div className='flex flex-row items-center m-4 justify-center'>

@@ -8,7 +8,7 @@ export default async function getItems(collection) {
   const results = await db.collection(collection)
   .aggregate([
     {$sort: {_id: -1}},
-    {$project: { _id: 0, name: 1, brand: 1, price: 1, image: 1, id: 1}},
+    {$project: { _id: 0, name: 1, brand: 1, price: 1, image: 1, id: 1, title: 1}},
     {$limit: 8}
   ])
   .toArray()

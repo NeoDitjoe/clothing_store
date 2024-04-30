@@ -7,13 +7,22 @@ export default function Search() {
 
   const router = useRouter()
 
-  async function searchHandler(e) {
+  function searchHandler(e) {
     e.preventDefault()
     const input = new FormData(e.target).get('search')
 
     router.push(`/products?p=1&results_for=${input}`)
 
   }
+  async function clearSeach(e) {
+    e.preventDefault()
+
+    router.push(`/products?p=1`)
+    const input = document.getElementById('search')
+    input.value = ''
+  }
+
+
 
   const isRoute = router.asPath.includes('products')
   console.log(isRoute)
@@ -22,7 +31,7 @@ export default function Search() {
     <form onSubmit={searchHandler} className={styles.form}>
       <div className='flex flex-row items-center m-4 justify-center'>
         <div className='bg-gray-200'>
-          <input type='text' name='search' placeholder='What are you look for ?' required />
+          <input type='text' id='search' name='search' placeholder='What are you look for ?' required />
         </div>
 
         <button>
@@ -36,7 +45,7 @@ export default function Search() {
         isRoute
         && <button
           className='ml-4 font-bold border border-pink-400 border-solid border-1 bg-white pl-10 pr-10 hover:bg-black hover:text-white'
-          onClick={() => router.push('products?p=1')}
+          onClick={clearSeach}
         >Clear</button>
       }
     </form>

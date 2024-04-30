@@ -9,11 +9,9 @@ export default function Search() {
 
   async function searchHandler(e){
     e.preventDefault()
-    const form = e.target
-    const input = new FormData(form).get('search')
+    const input = new FormData(e.target).get('search')
     
     router.push(`/products?p=1&results_for=${input}`)
-    form.reset()
     
   }
 

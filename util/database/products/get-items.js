@@ -29,8 +29,8 @@ export async function getAllItems(skip, categoriesQuery, searchInput){
    * So to match categories every first character have to be uppercase. from the 
    * text {@link searchInput} array
   */
-  const capitalizeFirstChar = searchInput.map(text => text.charAt(0).toUpperCase() + text.slice(1));
-  
+  const capitalizeFirstChar = searchInput?.map(text => text.charAt(0).toUpperCase() + text.slice(1));
+
   const matchBySearchResults = searchInput 
   ?  { $or : [ 
     {$or:  searchInput.map(input => ({ name: { $regex: new RegExp(input, 'i') } }))},

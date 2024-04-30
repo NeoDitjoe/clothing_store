@@ -29,17 +29,19 @@ export async function getAllItems(skip, categoriesQuery, searchInput){
     
   ]} 
   : {}
+
+  const matchBy = {$and: [ match, matchBySearchResults]}
   
   const items = await db.collection('items')
     .aggregate([
-      {$match: matchBySearchResults},
+      {$match: matchBy},
       {$project: {_id: 0, name: 1, brand: 1, price: 1, image: 1, id: 1}},
       {$skip: skip},
       {$limit: 4},
     ])
     .toArray()
 
-    const countItems = await db.collection('items').countDocuments(match)
+    const countItems = await db.collection('items').countDocuments(matchBy)
 
     return {
       items,

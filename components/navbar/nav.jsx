@@ -4,6 +4,7 @@ import Image from "next/image";
 import logo from '../../public/images/logo.png'
 import { menu } from "@/util/navbar/dropdown-menu";
 import { useRouter } from "next/router";
+import { signOut } from "next-auth/react";
 
 export default function Nav() {
 
@@ -60,8 +61,8 @@ export default function Nav() {
               ))
             }
 
-            <DropdownItem key="logout" color="danger">
-              Log Out
+            <DropdownItem key="logout" color="danger" onClick={() => signOut()}>
+              Sign Out
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>

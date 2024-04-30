@@ -18,7 +18,7 @@ export default function AuthForm() {
       if(res.message === 'success'){
         alert('success')
       }
-      
+
     } catch (error) {
       alert(error.message)
     }
@@ -28,7 +28,7 @@ export default function AuthForm() {
   return (
     <div className='flex flex-row'>
 
-      <form onSubmit={signUpHandler} className={`flex flex-col m-5 justify-center ${style.form}`}>
+      <form onSubmit={signUpHandler} className={`flex flex-col md:m-5 m-1 justify-center ${style.form}`}>
         <input type='email' placeholder='Enter Email' required name='email' />
         <input type='password' placeholder='Enter Password' required name='password' />
         <label>Profile Image</label>

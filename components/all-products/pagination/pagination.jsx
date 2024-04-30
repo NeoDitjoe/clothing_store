@@ -11,7 +11,13 @@ export default function PaginationComp(props) {
   const currentPage = router.query.p
 
   function nextPageHandler(pageNumber) {
-    router.push(`/products?p=${pageNumber}`)
+    const urlSearchParams = new URLSearchParams(window.location.search);
+
+    const queryParams = Object.fromEntries(urlSearchParams.entries());
+    queryParams.p = pageNumber; 
+    const queryString = new URLSearchParams(queryParams).toString();
+    const nextPageUrl = `/products?${queryString}`;
+    router.push(nextPageUrl);
   }
 
   return (

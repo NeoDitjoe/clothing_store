@@ -4,11 +4,12 @@ import Image from "next/image";
 import logo from '../../public/images/logo.png'
 import { menu } from "@/util/navbar/dropdown-menu";
 import { useRouter } from "next/router";
-import { signOut } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 
 export default function Nav() {
 
   const router = useRouter()
+  const { data: session } = useSession()
 
   return (
     <Navbar className="shadow-md">
@@ -61,8 +62,8 @@ export default function Nav() {
               ))
             }
 
-            <DropdownItem key="logout" color="danger" onClick={() => signOut()}>
-              Sign Out
+            <DropdownItem key="logout" color="danger" onClick={() => session ? signOut() : router.push('/auth/sign-in')}>
+              {session ? 'Sign Out' : 'Sign In'}
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>

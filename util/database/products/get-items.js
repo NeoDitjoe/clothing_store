@@ -20,13 +20,23 @@ export async function getAllItems(skip, categoriesQuery, searchInput){
 
   const categoriesQueryToArray = categoriesQuery.split(' ')
   const match = categoriesQuery.split('').length > 0 ?  {categories: {$all: categoriesQueryToArray }} : {}  
+
+  /**
+   * I was having a problem, When the input text included men it would bring results
+   * for women too.
+   * 
+   * This happenes when I use regex for categories.
+   * So to match categories every first character have to be uppercase. from the 
+   * text {@link searchInput} array
+  */
+  const capitalizeFirstChar = searchInput.map(text => text.charAt(0).toUpperCase() + text.slice(1));
+  
   const matchBySearchResults = searchInput 
   ?  { $or : [ 
     {$or:  searchInput.map(input => ({ name: { $regex: new RegExp(input, 'i') } }))},
     {$or:  searchInput.map(input => ({ brand: { $regex: new RegExp(input, 'i') } }))},
     {$or:  searchInput.map(input => ({ description: { $regex: new RegExp(input, 'i') } }))},
-    {$or: [{categories: { $in:  searchInput.map(word => new RegExp(word, 'i'))}}]},
-    
+    {categories: {$all: capitalizeFirstChar }}
   ]} 
   : {}
 

@@ -4,12 +4,9 @@ import FilterOptions from '@/components/all-products/select-filters-options/filt
 import Search from '@/components/search-form/search'
 import getCategories from '@/util/database/categories/get-categories'
 import { getAllItems } from '@/util/database/products/get-items'
-import { useRouter } from 'next/router'
 import React from 'react'
 
 export default function ProductPage(props) {
-
-  const router = useRouter()
 
   return (
     <div className='p-4 bg-blue-300 flex flex-col items-center gap-4'>
@@ -17,10 +14,6 @@ export default function ProductPage(props) {
       <FilterOptions {...props} />
 
       <Search />
-      <button 
-        className='font-bold border border-pink-400 border-solid border-1 bg-white pl-10 pr-10 hover:bg-black hover:text-white'
-        onClick={() => router.push('products?p=1')}
-      >Clear</button>
 
       <AllProducts {...props} />
 

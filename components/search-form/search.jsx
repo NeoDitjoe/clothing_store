@@ -7,13 +7,16 @@ export default function Search() {
 
   const router = useRouter()
 
-  async function searchHandler(e){
+  async function searchHandler(e) {
     e.preventDefault()
     const input = new FormData(e.target).get('search')
-    
+
     router.push(`/products?p=1&results_for=${input}`)
-    
+
   }
+
+  const isRoute = router.asPath.includes('products')
+  console.log(isRoute)
 
   return (
     <form onSubmit={searchHandler} className={styles.form}>
@@ -28,6 +31,14 @@ export default function Search() {
           </div>
         </button>
       </div>
+
+      {
+        isRoute
+        && <button
+          className='ml-4 font-bold border border-pink-400 border-solid border-1 bg-white pl-10 pr-10 hover:bg-black hover:text-white'
+          onClick={() => router.push('products?p=1')}
+        >Clear</button>
+      }
     </form>
   )
 }

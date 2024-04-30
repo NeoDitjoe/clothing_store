@@ -1,10 +1,17 @@
+import addToCartHandler from '@/util/add-to-cart-handler/add-to-cart'
+import postMethod from '@/util/database/post-method'
 import { Button } from '@nextui-org/react'
+import { useSession } from 'next-auth/react'
 import Image from 'next/image'
-import React from 'react'
+import { useRouter } from 'next/router'
+import React, { useState } from 'react'
 
 export default function ViewProduct(props) {
 
   const { image, name, price, brand, description, size, material } = props
+  const [ qtyValue, setQtyValue ] = useState('1')
+  const { data: session, loading } = useSession()
+  const router = useRouter()
 
   const qty = []
 
@@ -53,7 +60,7 @@ export default function ViewProduct(props) {
 
           <div className='flex flex-wrap gap-1 mt-10'>
             <h1 className='font-bold text-lg'>Qty:</h1>
-            <select className='w-10 h-10'>
+            <select className='w-10 h-10' onChange={(e) => setQtyValue(e.target.value)}>
               {
                 qty.map((num, i) => <option className='text-center' key={i}>{num + 1}</option>)
               }
@@ -61,14 +68,14 @@ export default function ViewProduct(props) {
           </div>
 
           <div className='mt-10'>
-            <Button className="relative overflow-visible rounded hover:-translate-y-1 px-12 shadow-xl bg-blue-400 after:content-[''] after:absolute after:rounded after:inset-0 after:bg-blue-500 after:z-[-1] after:transition after:!duration-500 hover:after:scale-150 hover:after:opacity-0">
+            <Button 
+              onClick={() => addToCartHandler(loading, session, image, name, price, qtyValue, router) }
+              className="relative overflow-visible rounded hover:-translate-y-1 px-12 shadow-xl bg-blue-400 after:content-[''] after:absolute after:rounded after:inset-0 after:bg-blue-500 after:z-[-1] after:transition after:!duration-500 hover:after:scale-150 hover:after:opacity-0">
               Add To Cart
             </Button>
           </div>
 
         </div>
-
-
       </div>
     </main>
   )

@@ -1,3 +1,4 @@
+import addToCartHandler from '@/util/add-to-cart-handler/add-to-cart'
 import postMethod from '@/util/database/post-method'
 import { Button } from '@nextui-org/react'
 import { useSession } from 'next-auth/react'
@@ -16,37 +17,6 @@ export default function ViewProduct(props) {
 
   for (let i = 0; i < 7; i++) {
     qty.push(i)
-  }
-
-  async function addToCartHandler(){
-
-    if(!loading && session){
-      const body = {
-        image: image[0], 
-        name, 
-        price, 
-        qty, 
-        email: session?.user.email,
-        qty: qtyValue
-        
-      }
-
-      try {
-        const res = await postMethod('/api/cart/add-to-cart', body)
-        if(res.message === 'success'){
-          alert('success')
-        }
-      } catch (error) {
-        alert(error.message)
-      }
-
-    }else{
-      alert('please log in ')
-      router.push('/auth/sign-in')
-    }
-    
-
-
   }
 
   return (
@@ -99,7 +69,7 @@ export default function ViewProduct(props) {
 
           <div className='mt-10'>
             <Button 
-              onClick={addToCartHandler}
+              onClick={() => addToCartHandler(loading, session, image, name, price, qtyValue, router) }
               className="relative overflow-visible rounded hover:-translate-y-1 px-12 shadow-xl bg-blue-400 after:content-[''] after:absolute after:rounded after:inset-0 after:bg-blue-500 after:z-[-1] after:transition after:!duration-500 hover:after:scale-150 hover:after:opacity-0">
               Add To Cart
             </Button>

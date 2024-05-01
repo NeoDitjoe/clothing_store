@@ -19,10 +19,19 @@ export default async function singleItem(id) {
     .toArray()
 
   const getCategories = item.map((item) => item.categories)
-  const categories = getCategories[0].slice(0, 3)
+  
+  function getRandomInt() {
+    return Math.floor(Math.random() * getCategories[0].length);
+  }
 
+  const recommend = []
+
+  for(let i = 0; i < 3; i++){
+    recommend.push(getCategories[0][getRandomInt()])
+  }
+  
   return {
     item,
-    categories
+    categories : recommend
   }
 }

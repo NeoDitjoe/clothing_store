@@ -23,7 +23,7 @@ export default function PaginationComp(props) {
   return (
     <Pagination
       onChange={nextPageHandler}
-      total={Math.ceil(countItems / 4)}
+      total={Math.ceil(countItems / 8)}
       initialPage={Number(currentPage)}
       color={'warning'}
     />

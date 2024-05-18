@@ -1,9 +1,5 @@
 export const menu = [
   {
-    name : 'Cart',
-    link: '/'
-  },
-  {
     name : 'Track My Order',
     link: '/'
   },

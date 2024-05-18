@@ -52,6 +52,10 @@ export default function Nav() {
               <p className="font-semibold">{session?.user.email}</p>
             </DropdownItem>
 
+            <DropdownItem onClick={() => router.push(`/cart?user=${session?.user.email}`)}>
+              Cart
+            </DropdownItem>
+
             {
               menu.map((item) => (
                 <DropdownItem
